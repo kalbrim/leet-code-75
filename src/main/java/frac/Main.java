@@ -2,30 +2,19 @@ package frac;
 
 public class Main {
     public static void main(String[] args) {
-        String on = "aaaa";
-        String tw = "bbbb";
-        System.out.println(mergeAlternately(on, tw));
+        int[] integerArray = { -5, 1, 5, 0, -7 };
+        System.out.println(largestAltitude(integerArray));
 
     }
-    public static String mergeAlternately(String wordOne, String wordTwo){
+    public static int largestAltitude(int[] gain) {
+        int maxAltitude = 0;
+        int currentAltitude = 0;
 
-        //add stringbuilder since it is mutable
-        StringBuilder result = new StringBuilder();
-
-        // var for iteration
-        int i = 0;
-
-        // while words still have characters
-        while(i < wordOne.length() || i < wordTwo.length()){
-            if(i < wordOne.length()){
-                result.append(wordOne.charAt(i));
-            }
-
-            if(i < wordTwo.length()){
-                result.append(wordTwo.charAt(i));
-            }
-            i++;
+        for (int i = 0; i < gain.length; i++) {
+            currentAltitude += gain[i];
+            maxAltitude = Math.max(maxAltitude, currentAltitude);
         }
-        return result.toString();
+
+        return maxAltitude;
     }
 }
