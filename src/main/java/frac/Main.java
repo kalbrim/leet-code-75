@@ -1,20 +1,28 @@
 package frac;
 
+import java.util.HashMap;
+import java.util.HashSet;
+
 public class Main {
     public static void main(String[] args) {
-        int[] integerArray = { -5, 1, 5, 0, -7 };
-        System.out.println(largestAltitude(integerArray));
+        int[] integerArray = { -5, 1, 1, -5, -5 };
+        System.out.println(uni(integerArray));
 
     }
-    public static int largestAltitude(int[] gain) {
-        int maxAltitude = 0;
-        int currentAltitude = 0;
-
-        for (int i = 0; i < gain.length; i++) {
-            currentAltitude += gain[i];
-            maxAltitude = Math.max(maxAltitude, currentAltitude);
+    public static boolean uni(int[] arr) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for(int i: arr){
+            map.put(i, map.getOrDefault(i, 0) + 1);
         }
 
-        return maxAltitude;
+        HashSet<Integer> set = new HashSet<>();
+        for(int num: map.values()){
+            if(set.contains(num)){
+                return false;
+            }
+            set.add(num);
+        }
+        return true;
+
     }
 }
