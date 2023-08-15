@@ -5,24 +5,19 @@ import java.util.HashSet;
 
 public class Main {
     public static void main(String[] args) {
-        int[] integerArray = { -5, 1, 1, -5, -5 };
-        System.out.println(uni(integerArray));
+        int l = 2;
+        System.out.println(countBits(l));
 
     }
-    public static boolean uni(int[] arr) {
-        HashMap<Integer, Integer> map = new HashMap<>();
-        for(int i: arr){
-            map.put(i, map.getOrDefault(i, 0) + 1);
-        }
-
-        HashSet<Integer> set = new HashSet<>();
-        for(int num: map.values()){
-            if(set.contains(num)){
-                return false;
+    public static int[] countBits(int num) {
+        int result[] = new int[num + 1];
+        int offset = 1;
+        for (int index = 1; index < num + 1; ++index){
+            if (offset * 2 == index){
+                offset *= 2;
             }
-            set.add(num);
+            result[index] = result[index - offset] + 1;
         }
-        return true;
-
+        return result;
     }
 }
