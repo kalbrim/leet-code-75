@@ -5,6 +5,7 @@ import java.util.HashSet;
 
 public class Main {
     public static void main(String[] args) {
+        // whatever
         int[] numbers = { 10, 20, 30, 40, 50 };
         System.out.println(singleNumber(numbers));
 
