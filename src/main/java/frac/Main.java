@@ -7,14 +7,23 @@ public class Main {
     public static void main(String[] args) {
         // whatever
         int[] numbers = { 10, 20, 30, 40, 50 };
-        System.out.println(singleNumber(numbers));
+        String s1 = "aaa";
+        String s2 = "bbb";
+        System.out.println(mergeAlternately(s1, s2));
 
     }
-    public static int singleNumber(int[] nums) {
-        int ans=0; //since XOR with 0 returns same number
-        for(int i=0; i<nums.length; i++){
-            ans ^= nums[i];  // ans = (ans) XOR (array element at i)
+    public static String mergeAlternately(String word1, String word2) {
+        StringBuilder result = new StringBuilder();
+        int i = 0;
+        while (i < word1.length() || i < word2.length()) {
+            if (i < word1.length()) {
+                result.append(word1.charAt(i));
+            }
+            if (i < word2.length()) {
+                result.append(word2.charAt(i));
+            }
+            i++;
         }
-        return ans;
+        return result.toString();
     }
 }
