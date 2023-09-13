@@ -6,6 +6,7 @@ import java.util.HashSet;
 public class Main {
     public static void main(String[] args) {
         // whatever
+        // tok check
         int[] numbers = { 10, 20, 30, 40, 50 };
         String s1 = "aaa";
         String s2 = "bbb";
